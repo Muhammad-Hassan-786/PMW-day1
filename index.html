@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Hassan | Software Engineering Portfolio</title>
+    <style>
+        :root {
+            --bg-main: #0b0f19;
+            --bg-card: #151b2c;
+            --bg-pill: #1e2640;
+            --accent-glow: #6366f1;
+            --accent-success: #10b981;
+            --text-heading: #ffffff;
+            --text-body: #94a3b8;
+            --border-color: #232d45;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-body);
+            line-height: 1.6;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .portfolio-container {
+            max-width: 800px;
+            width: 100%;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Header / Contact Area */
+        header {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+
+        .cohort-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--accent-glow);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        h1 {
+            color: var(--text-heading);
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+
+        .title-sub {
+            font-size: 1.1rem;
+            color: var(--accent-glow);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 0.9rem;
+        }
+
+        .contact-info a {
+            color: var(--text-body);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--text-heading);
+        }
+
+        /* Section Headings */
+        .section-title {
+            color: var(--text-heading);
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background-color: var(--border-color);
+        }
+
+        p.objective {
+            font-size: 1.05rem;
+            color: #cbd5e1;
+        }
+
+        /* Education */
+        .edu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .edu-degree {
+            color: var(--text-heading);
+            font-weight: 700;
+        }
+
+        .edu-timeline {
+            color: var(--accent-glow);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Projects Section */
+        .project-card {
+            background: #1c2438;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-glow);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .project-name {
+            color: var(--text-heading);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .tech-stack {
+            font-size: 0.85rem;
+            background: var(--bg-pill);
+            padding: 4px 10px;
+            border-radius: 6px;
+            color: #cbd5e1;
+            border: 1px solid var(--border-color);
+        }
+
+        .project-details {
+            list-style-type: none;
+        }
+
+        .project-details li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .project-details li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent-glow);
+        }
+
+        /* Skills Layout */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category h4 {
+            color: var(--text-heading);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: var(--bg-pill);
+            color: #e2e8f0;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Single list structures for Certs / Activities */
+        .simple-list {
+            list-style: none;
+        }
+
+        .simple-list li {
+            background: #1c2438;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        .simple-list strong {
+            color: var(--text-heading);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="portfolio-container">
+        <header>
+            <span class="cohort-badge">PMW-Day1 · Week 1 Kickoff</span>
+            <h1>Muhammad Hassan</h1>
+            <p class="title-sub">Software Engineering Student @ FAST NUCES</p>
+            <div class="contact-info">
+                <span>📍 Islamabad, Pakistan</span>
+                <span>📞 0329-5424624</span>
+                <span>✉️ <a href="mailto:m.hassan20072005@gmail.com">m.hassan20072005@gmail.com</a></span>
+                <span>🔗 <a href="https://linkedin.com/in/muhammad-hassan-452266249" target="_blank">LinkedIn Profile</a></span>
+            </div>
+        </header>
+
+        <section>
+            <h2 class="section-title">Objective</h2>
+            <p class="objective">
+                Motivated 2nd-year Software Engineering student at FAST NUCES with hands-on experience in C++ and front-end web development. Passionate about building practical software solutions and eager to contribute to a dynamic tech team through an internship.
+            </p>
+        </section>
+
+        <section>
+            <h2 class="section-title">Education</h2>
+            <div class="edu-item">
+                <div>
+                    <div class="edu-degree">Bachelor of Science in Software Engineering</div>
+                    <div class="edu-school">FAST - National University of Computer and Emerging Sciences (NUCES), Islamabad</div>
+                </div>
+                <div class="edu-timeline">2024 — 2028</div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Projects</h2>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-name">UNO Card Game</span>
+                    <span class="tech-stack">C++ • File I/O • Windows Console API</span>
+                </div>
+                <ul class="project-details">
+                    <li>Built a fully playable 2-player terminal UNO game supporting all standard card types including Skip, Reverse, Draw 2, Wild, and Wild Draw 4.</li>
+                    <li>Implemented UNO calling with penalty enforcement, deck reshuffling, pause/exit controls, and persistent game history saved to a file.</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-name">Social Network System</span>
+                    <span class="tech-stack">C++ • Graphs • Heaps • Data Structures</span>
+                </div>
+                <ul class="project-details">
+                    <li>Developed a console-based social networking app supporting user management, friend requests, messaging, posts with likes/comments, and friend recommendations.</li>
+                    <li>Implemented advanced features including shortest connection path finding (BFS/Dijkstra), community detection, and interest-based matching using custom data structures.</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-name">Whispered Pages - Online Bookstore</span>
+                    <span class="tech-stack">HTML5 • CSS3 • Bootstrap 5</span>
+                </div>
+                <ul class="project-details">
+                    <li>Designed and built a multi-page static front-end website for an online bookstore with home, categories, book details, shopping cart, payment, and login/registration pages.</li>
+                    <li>Maintained consistent styling and responsive layout across all pages using Bootstrap 5.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Languages</h4>
+                    <div class="skill-tags">
+                        <span class="tag">C++</span>
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Tools & Frameworks</h4>
+                    <div class="skill-tags">
+                        <span class="tag">Git</span>
+                        <span class="tag">Bootstrap 5</span>
+                        <span class="tag">Windows Console API</span>
+                        <span class="tag">File I/O (fstream)</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Core Concepts</h4>
+                    <div class="skill-tags">
+                        <span class="tag">OOP</span>
+                        <span class="tag">Data Structures & Algorithms</span>
+                        <span class="tag">Custom Graphs & Heaps</span>
+                        <span class="tag">Front-End Development</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Certifications</h2>
+            <ul class="simple-list">
+                <li><strong>C++ Programming (Basic to Intermediate)</strong> — Coursera</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="section-title">Extracurricular Activities</h2>
+            <ul class="simple-list">
+                <li><strong>Community Service Volunteer:</strong> Dedicated an entire semester to volunteering at a local orphanage, contributing to the welfare and development of underprivileged children.</li>
+            </ul>
+        </section>
+    </div>
+
+</body>
+</html>
