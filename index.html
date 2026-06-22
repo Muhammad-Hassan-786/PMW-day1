@@ -120,8 +120,8 @@
             color: #cbd5e1;
         }
 
-        /* Education */
-        .edu-item {
+        /* Experience & Education */
+        .edu-item, .exp-item {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
@@ -129,14 +129,37 @@
             gap: 10px;
         }
 
-        .edu-degree {
+        .edu-degree, .exp-role {
             color: var(--text-heading);
             font-weight: 700;
         }
 
-        .edu-timeline {
+        .edu-school, .exp-company {
+            color: #cbd5e1;
+        }
+
+        .edu-timeline, .exp-timeline {
             color: var(--accent-glow);
             font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .exp-details {
+            margin-top: 8px;
+            padding-left: 20px;
+            list-style-type: none;
+        }
+
+        .exp-details li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent-success);
+        }
+
+        .exp-details li {
+            position: relative;
+            padding-left: 20px;
             font-size: 0.95rem;
         }
 
@@ -265,6 +288,20 @@
             <p class="objective">
                 Motivated 2nd-year Software Engineering student at FAST NUCES with hands-on experience in C++ and front-end web development. Passionate about building practical software solutions and eager to contribute to a dynamic tech team through an internship.
             </p>
+        </section>
+
+        <section>
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="exp-item">
+                <div>
+                    <div class="exp-role">Platform & Web Engineering Intern</div>
+                    <div class="exp-company">PreserveMy.World</div>
+                </div>
+                <div class="exp-timeline">June 2026 — Present</div>
+            </div>
+            <ul class="exp-details">
+                <li>Actively contributing to core platform architecture, modern web environments, and scalable deployment pipelines within the tech team.</li>
+            </ul>
         </section>
 
         <section>
